@@ -8,3 +8,4 @@ vscode:
     - scalameta.metals@1.7.8:oixMSF1r3cXQPfOQ34+sTA==
 ports:
   - port: 8212
+    onOpen: ignore
