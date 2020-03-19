@@ -6,13 +6,6 @@ RUN sudo env "PATH=$PATH" coursier bootstrap org.scalameta:scalafmt-cli_2.12:2.4
   -r sonatype:snapshots \
   -o /usr/local/bin/scalafmt --standalone --main org.scalafmt.cli.Cli
 RUN scalaenv install scala-2.9.3 && scalaenv global scala-2.9.3
-RUN bash -cl "version=0.8.2 \
-    coursier fetch \
-        org.scalameta:metals_2.12:$version \
-        org.scalameta:mtags_2.13.1:$version \
-        org.scalameta:mtags_2.13.0:$version \
-        org.scalameta:mtags_2.12.10:$version \
-        org.scalameta:mtags_2.12.11:$version \
-        org.scalameta:mtags_2.12.9:$version \
-        org.scalameta:mtags_2.12.8:$version \
-        org.scalameta:mtags_2.11.12:$version"
+RUN wget "https://raw.githubusercontent.com/scalameta/metals/master/bin/test-release.sh" \
+    && chmod +x test-release.sh \
+    && ./test-release.sh 0.8.2
