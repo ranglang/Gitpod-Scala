@@ -6,8 +6,7 @@ RUN sudo env "PATH=$PATH" coursier bootstrap org.scalameta:scalafmt-cli_2.12:2.4
   -r sonatype:snapshots \
   -o /usr/local/bin/scalafmt --standalone --main org.scalafmt.cli.Cli
 RUN scalaenv install scala-2.9.3 && scalaenv global scala-2.9.3
-RUN bash -cl " \
-    set -eux \
+RUN bash -cl "set -eux \
     version=0.8.0 \
     coursier fetch \
         org.scalameta:metals_2.12:$version \
