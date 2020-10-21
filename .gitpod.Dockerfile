@@ -16,3 +16,4 @@ RUN bash -cl "set -eux \
         org.scalameta:mtags_2.12.9:$version \
         org.scalameta:mtags_2.12.8:$version \
         org.scalameta:mtags_2.11.12:$version"
+RUN sudo curl -L https://github.com/lihaoyi/mill/releases/download/0.7.4/0.7.4 > /usr/local/bin/mill && sudo chmod +x /usr/local/bin/mill
