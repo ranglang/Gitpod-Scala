@@ -1,4 +1,4 @@
-FROM nginx
+FROM gitpod/workspace-full
 USER gitpod
 RUN sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/2.0.4/2.13-2.0.4) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' 
 RUN brew install scala coursier/formulas/coursier sbt scalaenv
@@ -17,3 +17,4 @@ RUN bash -cl "set -eux \
         org.scalameta:mtags_2.12.8:$version \
         org.scalameta:mtags_2.11.12:$version"
 RUN sudo curl -L https://github.com/lihaoyi/mill/releases/download/0.7.4/0.7.4 > /usr/local/bin/mill && sudo chmod +x /usr/local/bin/mill
+RUN mill -version
